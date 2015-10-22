@@ -6664,7 +6664,8 @@ body {
   padding: 0; }
 
 .pages-holder--free {
-  overflow-y: auto; }
+  overflow-y: auto;
+  overflow-x: hidden; }
 
 .pages-holder--fixed {
   overflow: hidden; }
@@ -6703,8 +6704,11 @@ body {
   min-height: calc(50vh);
   max-height: calc(50vh);
   height: calc(50vh); }
+  .mask:hover {
+    background-color: red; }
 
 .content {
+  position: absolute;
   background-color: white;
   overflow: hidden;
   z-index: 500;
@@ -6721,7 +6725,6 @@ body {
   transform: translate(0, 0); }
 
 .content--zoomed-in {
-  /*position: absolute;*/
   transform: scale(1);
   transform-origin: 0px 0px;
   width: 100vw;
@@ -6730,7 +6733,7 @@ body {
   max-height: 100vh;
   padding-left: calc(16.5vw + 10px);
   padding-right: calc(16.5vw + 10px);
-  /*z-index: 900;	*/ }
+  z-index: 900; }
 
 .content--zoomed-out {
   width: 200%;

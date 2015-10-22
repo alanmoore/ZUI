@@ -10,7 +10,7 @@ $('.zoom-out-btn').click(function() {
     var targetContent = $('.content--zoomed-in:not(:has(".zoomable--zoomed-in"))');
     var checkFor = $('.zoomable--zoomed-in'); 
 
-    var mask = targetDiv.siblings('.mask');
+    var mask = targetDiv.parent().siblings().children('.mask');
     mask.removeClass('hidden');
     targetDiv.removeClass('zoomable--zoomed-in').addClass('zoomable--zoomed-out').removeAttr('style');
     targetContent.removeClass('content--zoomed-in').addClass('content--zoomed-out');
@@ -26,7 +26,9 @@ $('.mask').click(function() {
     var targetDiv = $(this).prev('.zoomable--zoomed-out');
     var targetContent = targetDiv.children('.content');
     var zoomOut = $('.zoom-out-btn');
-    var mask = $(this).siblings('.mask');
+
+    var mask = $(this).parent().siblings().children('.mask');
+
     var targetOffset = targetDiv.offset();
     var thisX = targetOffset.left;
     var thisY = targetOffset.top;
