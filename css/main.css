@@ -1,0 +1,138 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.pages-holder {
+	position: absolute;
+	background-color: #eee;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.pages-holder--free {
+	overflow-y: auto;
+}
+
+.pages-holder--fixed {
+	overflow: hidden;
+}
+
+.pages {
+	position: absolute;
+	background-color: #eee;
+	width: 100%; 
+}
+
+.zoomable,
+.mask {
+	margin: auto;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	width: 100%;
+	min-height: calc(50vh - 20px);
+	max-height: calc(50vh - 20px);
+	height: calc(50vh - 20px);
+	overflow: hidden;
+}
+
+.zoomable {
+	background-color: white;
+	overflow: hidden;
+}
+
+.zoomed-out,
+.mask {
+	overflow: hidden;
+}
+
+.mask {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	opacity: 0.2;
+	z-index: 600;
+}
+
+.content {
+	transition: transform 300ms, padding 300ms, translate 300ms, z-index 300ms;
+	background-color: white;
+	overflow: hidden;
+	z-index: 500;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.zoomable--zoomed-in .content--zoomed-in {
+	position: absolute;
+	transform: scale(1);
+	transform-origin: 0px 0px;
+	width: 100vw;
+	height: 100vh;
+	padding-left: calc(16.5vw + 10px);
+	padding-right: calc(16.5vw + 10px);
+	z-index: 900;	
+}
+
+.zoomable--zoomed-out .content {
+	width: 200%;
+	height: 200%;
+	transform: scale(0.5);
+	transform-origin: 0px 0px;
+}
+
+.zoom-out-btn {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: block;
+	background-color: black;
+	color: white;
+	padding: 10px 7px;
+	opacity: 0;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.hidden {
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+
+.red {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	background-color: white;
+	color: red;
+	font-style: italic;
+}
+
+.green {
+	font-family: Verdana, Arial, sans-serif;
+	background-color: #8BC53F;
+	color: white;
+}
+
+.blue {
+	background-color: #69B9D4;
+	color: white;
+	font-weight: 600;
+
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
