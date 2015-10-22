@@ -4,32 +4,17 @@ $(document).ready(function() {
 });
 
 $('.zoom-out-btn').click(function() {
-    /*
-    var fakeZoomer = $('#zoom-animation-holder');
-
-    if (fakeZoomer.hasClass('has-content')) {
-        fakeZoomer.html('')
-        fakeZoomer.removeClass('has-content');
-        console.log('cleared out fakeZoomer');
-        fakeZoomer.css({
-          'top':      '0',
-          'left':     '0',
-          'width':    '0',
-          'height':   '0',
-          'opacity':  '0'
-        })
-    } 
-
+    console.log('zoom out clicked');
 
     var targetDiv = $('.zoomable--zoomed-in:not(:has(".zoomable--zoomed-in"))');
-    */
-    //var mask = targetDiv.siblings('.mask');
-    var targetContent = $('.content--zoomed-in');
-
-    targetContent.removeClass('content--zoomed-in').addClass('content--zoomed-out');  
-    //mask.removeClass('hidden');
-    
+    var targetContent = $('.content--zoomed-in:not(:has(".zoomable--zoomed-in"))');
     var checkFor = $('.zoomable--zoomed-in'); 
+
+    var mask = targetDiv.siblings('.mask');
+    mask.removeClass('hidden');
+    targetDiv.removeClass('zoomable--zoomed-in').addClass('zoomable--zoomed-out');
+    targetContent.removeClass('content--zoomed-in').addClass('content--zoomed-out');
+    
     if (checkFor.length < 1) {
         $(this).css('opacity', '0');
     }
@@ -42,20 +27,22 @@ $('.mask').click(function() {
     var targetContent = targetDiv.children('.content');
     var zoomOut = $('.zoom-out-btn');
     var mask = $(this).siblings('.mask');
-    /*
     var targetOffset = targetDiv.offset();
     var thisX = targetOffset.left;
     var thisY = targetOffset.top;
-    var thisWidth = targetDiv.width();
-    var thisHeight = targetDiv.height();
     var cssString = "translate(-"+thisX+"px,-"+thisY+"px)";
     console.log(cssString);
  
+    /*
+    var thisWidth = targetDiv.width();
+    var thisHeight = targetDiv.height();
+    
     var fakeZoomer = $('#zoom-animation-holder');
     */
 
     targetContent.removeClass('content--zoomed-out').addClass('content--zoomed-in');
-
+    targetDiv.removeClass('zoomable--zoomed-out').addClass('zoomable--zoomed-in');
+    //targetDiv.css('transform', cssString);
     /*
     fakeZoomer.css({
         'position': 'absolute',
@@ -83,9 +70,7 @@ $('.mask').click(function() {
     fakeTargetContent.css('transform', cssString);
     */
     window.scrollTo(0, 0);
-
     zoomOut.css('opacity', '1');
-
     mask.addClass('hidden');
 
 });

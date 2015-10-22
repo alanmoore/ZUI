@@ -80,6 +80,13 @@ body {
 	padding-right: 20px;
 }
 
+.zoomable--zoomed-in {
+	width: 100vw;
+	height: 100vh;
+	min-height: 100vh;
+	max-height: 100vh;
+}
+
 
 .content--zoomed-in {
 	/*position: absolute;*/
@@ -87,6 +94,8 @@ body {
 	transform-origin: 0px 0px;
 	width: 100vw;
 	height: 100vh;
+	min-height: 100vh;
+	max-height: 100vh;
 	padding-left: calc(16.5vw + 10px);
 	padding-right: calc(16.5vw + 10px);
 	/*z-index: 900;	*/
@@ -94,10 +103,10 @@ body {
 
 
 .content--zoomed-out {
-		width: 200%;
-		height: 200%;
-		transform: scale(0.5);
-		transform-origin: 0px 0px;
+	width: 200%;
+	height: 200%;
+	transform: scale(0.5);
+	transform-origin: 0px 0px;
 }
 
 .zoom-out-btn {
