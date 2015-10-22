@@ -12,7 +12,7 @@ $('.zoom-out-btn').click(function() {
 
     var mask = targetDiv.siblings('.mask');
     mask.removeClass('hidden');
-    targetDiv.removeClass('zoomable--zoomed-in').addClass('zoomable--zoomed-out');
+    targetDiv.removeClass('zoomable--zoomed-in').addClass('zoomable--zoomed-out').removeAttr('style');
     targetContent.removeClass('content--zoomed-in').addClass('content--zoomed-out');
     
     if (checkFor.length < 1) {
@@ -41,7 +41,7 @@ $('.mask').click(function() {
     */
 
     targetContent.removeClass('content--zoomed-out').addClass('content--zoomed-in');
-    targetDiv.removeClass('zoomable--zoomed-out').addClass('zoomable--zoomed-in');
+    targetDiv.removeClass('zoomable--zoomed-out').addClass('zoomable--zoomed-in').css('transform', cssString);
     //targetDiv.css('transform', cssString);
     /*
     fakeZoomer.css({

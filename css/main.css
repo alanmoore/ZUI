@@ -6705,7 +6705,6 @@ body {
   height: calc(50vh); }
 
 .content {
-  transition: transform 300ms, padding 300ms, translate 300ms, z-index 300ms;
   background-color: white;
   overflow: hidden;
   z-index: 500;
@@ -6717,6 +6716,9 @@ body {
   height: 100vh;
   min-height: 100vh;
   max-height: 100vh; }
+
+.zoomable--zoomed-out {
+  transform: translate(0, 0); }
 
 .content--zoomed-in {
   /*position: absolute;*/
