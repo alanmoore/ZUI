@@ -42,15 +42,16 @@ body {
 	margin-bottom: 20px;
 	margin-right: 20px;
 	width: 100%;
-	min-height: calc(50vh - 20px);
-	max-height: calc(50vh - 20px);
-	height: calc(50vh - 20px);
+	
 	overflow: hidden;
 }
 
 .zoomable {
 	background-color: white;
 	overflow: hidden;
+	min-height: calc(50vh - 20px);
+	max-height: calc(50vh - 20px);
+	height: calc(50vh - 20px);
 }
 
 .zoomed-out,
@@ -64,6 +65,10 @@ body {
 	bottom: 0;
 	opacity: 0.2;
 	z-index: 600;
+	margin: 0;
+	min-height: calc(50vh);
+	max-height: calc(50vh);
+	height: calc(50vh);
 }
 
 .content {
@@ -75,22 +80,24 @@ body {
 	padding-right: 20px;
 }
 
-.zoomable--zoomed-in .content--zoomed-in {
-	position: absolute;
+
+.content--zoomed-in {
+	/*position: absolute;*/
 	transform: scale(1);
 	transform-origin: 0px 0px;
 	width: 100vw;
 	height: 100vh;
 	padding-left: calc(16.5vw + 10px);
 	padding-right: calc(16.5vw + 10px);
-	z-index: 900;	
+	/*z-index: 900;	*/
 }
 
-.zoomable--zoomed-out .content {
-	width: 200%;
-	height: 200%;
-	transform: scale(0.5);
-	transform-origin: 0px 0px;
+
+.content--zoomed-out {
+		width: 200%;
+		height: 200%;
+		transform: scale(0.5);
+		transform-origin: 0px 0px;
 }
 
 .zoom-out-btn {
@@ -104,6 +111,11 @@ body {
 	opacity: 0;
 	z-index: 1000;
 	cursor: pointer;
+}
+
+.zoom-animation.zoomable--zoomed-in {
+	width: 100vw;
+	height: 100vh;
 }
 
 .hidden {

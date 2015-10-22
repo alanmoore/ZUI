@@ -6680,14 +6680,14 @@ body {
   margin-bottom: 20px;
   margin-right: 20px;
   width: 100%;
-  min-height: calc(50vh - 20px);
-  max-height: calc(50vh - 20px);
-  height: calc(50vh - 20px);
   overflow: hidden; }
 
 .zoomable {
   background-color: white;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: calc(50vh - 20px);
+  max-height: calc(50vh - 20px);
+  height: calc(50vh - 20px); }
 
 .zoomed-out,
 .mask {
@@ -6698,7 +6698,11 @@ body {
   position: absolute;
   bottom: 0;
   opacity: 0.2;
-  z-index: 600; }
+  z-index: 600;
+  margin: 0;
+  min-height: calc(50vh);
+  max-height: calc(50vh);
+  height: calc(50vh); }
 
 .content {
   transition: transform 300ms, padding 300ms, translate 300ms, z-index 300ms;
@@ -6708,17 +6712,17 @@ body {
   padding-left: 20px;
   padding-right: 20px; }
 
-.zoomable--zoomed-in .content--zoomed-in {
-  position: absolute;
+.content--zoomed-in {
+  /*position: absolute;*/
   transform: scale(1);
   transform-origin: 0px 0px;
   width: 100vw;
   height: 100vh;
   padding-left: calc(16.5vw + 10px);
   padding-right: calc(16.5vw + 10px);
-  z-index: 900; }
+  /*z-index: 900;	*/ }
 
-.zoomable--zoomed-out .content {
+.content--zoomed-out {
   width: 200%;
   height: 200%;
   transform: scale(0.5);
@@ -6735,6 +6739,10 @@ body {
   opacity: 0;
   z-index: 1000;
   cursor: pointer; }
+
+.zoom-animation.zoomable--zoomed-in {
+  width: 100vw;
+  height: 100vh; }
 
 .hidden {
   width: 0;
